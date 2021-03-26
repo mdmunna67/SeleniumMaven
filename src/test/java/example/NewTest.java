@@ -15,8 +15,24 @@ public class NewTest {
 
     @BeforeClass
     public void setUp(){
-    	System.setProperty("webdriver.chrome.driver", "C:\\Users\\rgcet\\Desktop\\SeleniumDocker project\\CRAFT_Selenium - Maven\\Browser Drivers\\chromedriver.exe");
-         driver=new ChromeDriver();
+    	// System.setProperty("webdriver.chrome.driver", "C:\\Users\\rgcet\\Desktop\\SeleniumDocker project\\CRAFT_Selenium - Maven\\Browser Drivers\\chromedriver.exe");
+        //  driver=new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver","/app/bin/chromedriver");
+        ChromeOptions options = new ChromeOptions();
+		Map<String, Object> prefs = new HashMap<String, Object>();
+		prefs.put("intl.accept_languages", "ja");
+		options.setExperimentalOption("prefs", prefs);
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        System.setProperty("webdriver.chrome.args", "--disable-logging");
+        System.setProperty("webdriver.chrome.silentOutput", "true");
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("disable-infobars"); // disabling infobars
+        options.addArguments("--disable-extensions"); // disabling extensions
+        options.addArguments("--disable-gpu"); // applicable to windows os only
+        options.addArguments("window-size=1024,768"); // Bypass OS security model
+        //options.setCapability("chrome.verbose", false); //disable logging
+        driver = new ChromeDriver(options);
 
 }
    @Test 
