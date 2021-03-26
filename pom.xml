@@ -19,7 +19,7 @@
         <dependency>				
             <groupId>org.testng</groupId>								
             <artifactId>testng</artifactId>								
-            <version>6.8</version>								
+            <version>6.14.3</version>								
             <scope>test</scope>							  			
        </dependency>				
 </dependencies>
@@ -30,9 +30,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.0</version>
                 <configuration>
-                   <!--  <compilerVersion>1.8</compilerVersion> -->
+                    <!-- <compilerVersion>1.8</compilerVersion> -->
+                    <encoding>UTF-8</encoding>
                     <source>1.8</source>
                     <target>1.8</target>
                     <!-- <testSource>1.8</testSource>
@@ -42,13 +43,13 @@
             <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-			    <version>2.19.1</version>
-			    <inherited>true</inherited>
+			    <version>2.22.0</version>
+			    <!-- <inherited>true</inherited> -->
 				<configuration>
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
-	    		<testFailureIgnore>true</testFailureIgnore>
+	    		<!-- <testFailureIgnore>true</testFailureIgnore> -->
 				</configuration>
 			</plugin>
             <plugin>
